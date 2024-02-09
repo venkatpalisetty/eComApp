@@ -1,0 +1,23 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+
+    .mat-card {
+        width: 300px;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        box-shadow: 2px 2px 5px #ccc;
+        min-height: 400px;
+        .login-content {
+            margin-top: 50px;
+            text-align: center;
+            h2, p {
+                margin: 5px;
+            }
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
