@@ -1,17 +1,40 @@
 <div class="login-container">
-    <mat-card>
-        <mat-card-content>
-            <div class="login-content">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-            
-                <h2>Loging Page</h2>
-                <p>Please enter your details to sign in</p>
+    <div class="login-form">
+        <h2>Login Form</h2>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
             </div>
-            <div class="buttons-container">           
-                <a mat-raised-button href="https://www.google.com/" target="_blank">G</a>
-                <a mat-raised-button href="https://www.google.com/" target="_blank">A</a>
-                <a mat-raised-button href="https://www.google.com/" target="_blank">f</a>
+
+            <div class="container">
+                <div class="error" *ngIf="hasError">Invalid User Name or Password</div>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" (input)="clearError()" formControlName="userName" maxlength="50" placeholder="Enter Username" name="uname">
+                <ng-container
+                    *ngIf="(getControl('userName').touched || getControl('userName').dirty) && getControl('userName').invalid">
+                    <div class="error" *ngIf="getControl('userName').errors['required']">User Name is required
+                    </div>
+                </ng-container>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" (input)="clearError()" formControlName="password" placeholder="Enter Password" name="psw">
+                <div class="error"
+                    *ngIf="(getControl('password').touched || getControl('password').dirty) && getControl('password').invalid && getControl('password').errors['required']">
+                    Password is required</div>
+                <div class="error"
+                    *ngIf="(getControl('password').touched || getControl('password').dirty) && getControl('password').invalid && getControl('password').errors['invalidPwd']">
+                    Password is Invalid</div>
+                <button [disabled]="loginForm.invalid">Login</button>
+                <!-- <button type="submit">Login</button> -->
+                <label>
+                    <input type="checkbox" formControlName="rememberMe" name="remember"> Remember me
+                </label>
             </div>
-        </mat-card-content>
-      </mat-card>
+
+            <div class="container links" style="background-color:#f1f1f1">
+                <a routerLink="/registration"><span class="psw">Register</span></a>
+                <a routerLink="/forgotpassword"><span class="psw">Forgot password?</span></a>
+            </div>
+        </form>
+    </div>
 </div>
