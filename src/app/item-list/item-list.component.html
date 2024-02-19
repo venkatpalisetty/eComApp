@@ -2,10 +2,10 @@
     <h2>Items List</h2>
     <div class="items">
         <div class="item" *ngFor="let item of itemList">
-            <img src="../../assets/images/mobile.webp" width="180px" height="180px">
+            <img [src]="item.imgUrl" width="180px" height="180px">
             <div class="name">{{item.name}}</div>
             <div class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</div>
-            <div class="price"><span>₹24,999</span>M.R.P: <del>₹26,999</del> (7% off)</div>
+            <div class="price"><span>₹24,999</span> M.R.P: <del>₹26,999</del> (7% off)</div>
             <span class="quantity">Quantity:
                 <select name="quantity" autocomplete="off">
                     <option selected="" value="1" *ngFor="let num of numbers">{{num}}</option>

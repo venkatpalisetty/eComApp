@@ -18,6 +18,8 @@ import { SidenavModule } from './sidenav/sidenav.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CardComponent } from './card/card.component';
 import { SummaryComponent } from './summary/summary.component';
+import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { SummaryComponent } from './summary/summary.component';
     ToolbarComponent,
     CardComponent,
     SummaryComponent,
+    ForgotpwdComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,

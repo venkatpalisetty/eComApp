@@ -12,8 +12,8 @@ export class ItemService {
   getItemList(typeId: string, companyIds?: string) {
     const data ={
       results: [
-      {id: 1, name: 'Ttem1', desc: 'Item 1', price: '20.00', typeId: 1, imgUrl: 'item1'},
-      {id: 2, name: 'Ttem2', desc: 'Item 2', price: '30.00', typeId: 1, imgUrl: 'item2'},
+      {id: 1, name: 'Ttem1', desc: 'Item 1', price: '20.00', typeId: 1, imgUrl: 'assets/images/mobile.webp'},
+      {id: 2, name: 'Ttem2', desc: 'Item 2', price: '30.00', typeId: 1, imgUrl: 'assets/images/mobile.webp'},
     ],
     totalResults: 100};
     this.itemsData.next(data);

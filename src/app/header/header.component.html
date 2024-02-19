@@ -11,10 +11,14 @@
           </div>
     </div>
     <div class="user-info">
-        Hello, Sign in!
+        Hello, 
+        <span *ngIf="loginService.user$ | async as user; else singIn">{{user.userName}}</span>
+        <ng-template #singIn>
+            <a routerLink="login">Sign in!</a>
+        </ng-template>
     </div>
     <div class="cart-container">
-        <a routerLink="card">
+        <a routerLink="cart">
         <i class="bi bi-cart position-relative">
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               2  <span class="visually-hidden">New alerts</span>
