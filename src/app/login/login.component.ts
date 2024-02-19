@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       this.loginService.validateUser(this.loginForm.value.userName, this.loginForm.value.password).subscribe((isValid) => {
         if (isValid) {
           sessionStorage.setItem('user', JSON.stringify(this.loginForm.value));
+          this.loginService.user$.next(this.loginForm.value);
           this.router.navigate(['/home']);
         } else {
           this.handleError();

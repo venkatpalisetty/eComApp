@@ -1,0 +1,25 @@
+.example-container {
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #555;
+}
+
+.main-container {
+    display: flex;
+    min-height: 430px;
+    margin: 10px;
+    gap: 10px;
+    .side-menu {
+        flex-grow: 1;
+        border: 2px solid #ddd;
+    }
+
+    .main-content {
+        flex-grow: 4;
+    }
+    .right-menu{
+        border: 2px solid #ddd;
+        height: 224px;
+    }
+}

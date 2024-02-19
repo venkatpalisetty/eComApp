@@ -1,0 +1,15 @@
+.header {
+    display: flex;    
+    justify-content: space-between;
+    border-bottom: 2px solid #ddd;
+    min-height: 50px;
+    align-items: center;
+    .logo {
+        font-size: 2em;
+        padding-left: 20px;
+    }
+
+    .cart-container {
+        margin-right: 20px;
+    }
+}

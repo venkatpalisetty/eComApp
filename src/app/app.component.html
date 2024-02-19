@@ -1,2 +1,21 @@
-<h1>eCom App</h1>
-<router-outlet></router-outlet>
+<app-header></app-header>
+<app-menu></app-menu>
+<!-- <mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container> -->
+<app-toolbar></app-toolbar>
+<div class="main-container">
+  <div class="side-menu">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- <div class="right-menu">
+    <app-summary></app-summary>
+  </div> -->
+</div>
+<app-footer></app-footer>

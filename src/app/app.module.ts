@@ -10,12 +10,27 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginModule } from './login/login.module';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { SidenavModule } from './sidenav/sidenav.module';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { CardComponent } from './card/card.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    MenuComponent,
+    FooterComponent,
+    ItemListComponent,
+    ToolbarComponent,
+    CardComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +39,8 @@ import { HomeComponent } from './home/home.component';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    LoginModule
+    LoginModule,
+    SidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
