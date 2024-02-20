@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
          this.isLoginPage = e.url.includes('login') || e.url.includes('forgotpwd') || e.url.includes('registration');
         this.isCart = e.url.includes('cart');
       }
-      })
+    });
   }
 
 }

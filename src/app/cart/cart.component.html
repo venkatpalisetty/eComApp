@@ -1,0 +1,30 @@
+<div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
+    <div class="header-content">
+        <h4>Shopping Cart {{cartItems.length}}</h4>
+        <p>Price</p>
+    </div>
+    <ng-container *ngIf="cartItems.length; else noItems">
+        <div class="items" *ngFor="let item of cartItems">
+            <div class="img-container">
+                <img [src]="item.imgUrl" width="150px" height="150px">
+            </div>
+            <div class="description-container">
+                <div>
+                    <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
+                    <span>₹24,999</span>
+                </div>
+                <div class="">In stock</div>
+                <div>Eligible For Free Shipping</div>
+                <span class="qty-container">
+                    <span>Qty: </span>
+                    <select name="quantity" autocomplete="off" [ngModel]="item.quantity">
+                        <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
+                    </select>
+                </span>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noItems>
+        <div>No items added. Please add items.</div>
+    </ng-template>
+</div>

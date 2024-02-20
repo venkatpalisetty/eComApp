@@ -16,10 +16,12 @@ import { FooterComponent } from './footer/footer.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { SidenavModule } from './sidenav/sidenav.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { CardComponent } from './card/card.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +33,10 @@ import { RegistrationComponent } from './registration/registration.component';
     FooterComponent,
     ItemListComponent,
     ToolbarComponent,
-    CardComponent,
     SummaryComponent,
     ForgotpwdComponent,
     RegistrationComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,9 @@ import { RegistrationComponent } from './registration/registration.component';
     MatIconModule,
     MatButtonModule,
     LoginModule,
-    SidenavModule
+    SidenavModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

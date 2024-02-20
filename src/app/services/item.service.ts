@@ -7,6 +7,7 @@ import { BehaviorSubject, of } from 'rxjs';
 export class ItemService {
   itemsData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   paginationData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  cartInfo$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   constructor() { }
 
   getItemList(typeId: string, companyIds?: string) {
