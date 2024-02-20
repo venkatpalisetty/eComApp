@@ -9,7 +9,7 @@ import { ItemService } from '../services/item.service';
 })
 export class ItemListComponent implements OnInit {
   typeId: string = '';
-  numbers: any = ['1','2','3','4','5'];
+  quantityList: any = [1, 2, 3, 4, 5];
   itemList: any = [];
   pageSize: number = 10;
   numberOfPages: number = 0;
@@ -22,7 +22,7 @@ export class ItemListComponent implements OnInit {
   ngOnInit(): void {
     this.itemService.itemsData.subscribe((data: any) => {
       if(data) {
-        this.itemList = data.results;
+        this.itemList = data.results.map((item: any) => ({...item, quantity: 1}));
         this.numberOfPages = Math.ceil(data.totalResults / this.pageSize);
       }
     })
@@ -30,6 +30,15 @@ export class ItemListComponent implements OnInit {
 
   onSelectPage(i: any) {
     this.seletedPage = i;
+  }
+
+  addToCart(item: any) {
+    let items: any;
+    this.itemService.cartInfo$.subscribe((cartInfo: any) => {
+      items = cartInfo;
+    }).unsubscribe();
+    
+    this.itemService.cartInfo$.next([...items, item]);
   }
 
 }

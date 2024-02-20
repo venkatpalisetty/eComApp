@@ -20,9 +20,9 @@
     <div class="cart-container">
         <a routerLink="cart">
         <i class="bi bi-cart position-relative">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              2  <span class="visually-hidden">New alerts</span>
-              </span>
+            <span *ngIf="quantity" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{quantity}}  <span class="visually-hidden">New alerts</span>
+            </span>
         </i>
     </a>
     </div>
