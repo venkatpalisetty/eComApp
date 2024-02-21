@@ -4,7 +4,19 @@
     </div>
     <div class="filter-sort-container">
         <div class="filter">
-            filters
+            <!-- <mat-form-field class="example-chip-list" appearance="fill"> -->
+                <mat-chip-list #chipList aria-label="Fruit selection">
+                  <mat-chip
+                    *ngFor="let filter of itemService.filters$ | async; let i = index"
+                    (removed)="remove(i)">
+                    {{filter.name}}
+                    <button matChipRemove>
+                        <i class="bi bi-x-circle"></i>
+                    </button>
+                  </mat-chip>
+                </mat-chip-list>
+              <!-- </mat-form-field> -->
+              
         </div>
         <div class="sorting">
             sorting

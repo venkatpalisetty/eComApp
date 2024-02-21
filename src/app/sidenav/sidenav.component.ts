@@ -31,4 +31,9 @@ export class SidenavComponent implements OnInit {
     this.itemService.getItemList(this.typeId);
   }
 
+  selectionChange(data: any) {
+    const selCompanies = data.map((item: any) => item.value);
+    this.itemService.filters$.next(selCompanies);
+  }
+
 }

@@ -8,7 +8,8 @@ import { ItemService } from '../services/item.service';
 })
 export class ToolbarComponent implements OnInit {
   totalResults: any;
-  constructor(private itemService: ItemService) { }
+  filters: any = ['filter1', 'filter2'];
+  constructor(public itemService: ItemService) { }
 
   ngOnInit(): void {
     this.itemService.itemsData.subscribe((data: any) => {
@@ -16,6 +17,9 @@ export class ToolbarComponent implements OnInit {
         this.totalResults = data.totalResults;
       }
     })
+  }
+  remove(i: number) {
+    this.filters.splice(i, 1);
   }
 
 }
