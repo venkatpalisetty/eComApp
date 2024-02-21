@@ -8,6 +8,7 @@ export class ItemService {
   itemsData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   paginationData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   cartInfo$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  filters$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
   constructor() { }
 
   getItemList(typeId: string, companyIds?: string) {
@@ -22,8 +23,8 @@ export class ItemService {
 
   getCompanyList(typeId: string) {
     return of([
-      {id: 1, name: 'Company 1', desc: 'Company 1', price: '20.00', typeId: 1},
-      {id: 2, name: 'Company 2', desc: 'Company 2', price: '30.00', typeId: 1},
+      {id: 1, name: 'Company 1', desc: 'Company 1', typeId: 1},
+      {id: 2, name: 'Company 2', desc: 'Company 2', typeId: 1},
     ]);
   }
 }
