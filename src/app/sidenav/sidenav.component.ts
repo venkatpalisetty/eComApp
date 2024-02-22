@@ -14,26 +14,21 @@ export class SidenavComponent implements OnInit {
     private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: any) => {
-      this.typeId = params.typeId;
-      this.getCompanyList();      
-      this.getItemList();
-    });
+  this.getCompanyList();
   }
 
   getCompanyList() {
-    this.itemService.getCompanyList(this.typeId).subscribe((items) => {
-      this.companyList = items;
+    this.itemService.companies$.subscribe((companies) => {      
+      this.companyList = companies;
+      console.log(this.companyList)
     });
-  }
-
-  getItemList() {
-    this.itemService.getItemList(this.typeId);
   }
 
   selectionChange(data: any) {
     const selCompanies = data.map((item: any) => item.value);
     this.itemService.filters$.next(selCompanies);
+    const companyIds = selCompanies.map((company: any) => company.id);
+    this.itemService.getItemList(companyIds);
   }
 
 }

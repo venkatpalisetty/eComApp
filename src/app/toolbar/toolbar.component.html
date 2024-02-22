@@ -7,7 +7,7 @@
             <!-- <mat-form-field class="example-chip-list" appearance="fill"> -->
                 <mat-chip-list #chipList aria-label="Fruit selection">
                   <mat-chip
-                    *ngFor="let filter of itemService.filters$ | async; let i = index"
+                    *ngFor="let filter of filters; let i = index"
                     (removed)="remove(i)">
                     {{filter.name}}
                     <button matChipRemove>

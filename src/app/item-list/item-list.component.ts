@@ -25,7 +25,20 @@ export class ItemListComponent implements OnInit {
         this.itemList = data.results.map((item: any) => ({...item, quantity: 1}));
         this.numberOfPages = Math.ceil(data.totalResults / this.pageSize);
       }
-    })
+    });
+    this.activatedRoute.params.subscribe((params: any) => {
+      this.itemService.typeId = params.typeId;
+      this.getCompanyList();      
+      this.getItemList();
+    });
+  }
+
+  getCompanyList() {
+    this.itemService.getCompanyList();
+  }
+
+  getItemList() {
+    this.itemService.getItemList();
   }
 
   onSelectPage(i: any) {

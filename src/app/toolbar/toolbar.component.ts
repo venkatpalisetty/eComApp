@@ -8,7 +8,7 @@ import { ItemService } from '../services/item.service';
 })
 export class ToolbarComponent implements OnInit {
   totalResults: any;
-  filters: any = ['filter1', 'filter2'];
+  filters: any = [];
   constructor(public itemService: ItemService) { }
 
   ngOnInit(): void {
@@ -16,10 +16,14 @@ export class ToolbarComponent implements OnInit {
       if(data) {
         this.totalResults = data.totalResults;
       }
-    })
+    });
+    this.itemService.filters$.subscribe((filters: any) => this.filters = filters);
   }
   remove(i: number) {
     this.filters.splice(i, 1);
+    this.itemService.filters$.next(this.filters);
+    const companyIds = this.filters.map((company: any) => company.id);
+    this.itemService.getItemList(companyIds);
   }
 
 }
