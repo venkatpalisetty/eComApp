@@ -28,6 +28,7 @@ export class ItemListComponent implements OnInit {
     });
     this.activatedRoute.params.subscribe((params: any) => {
       this.itemService.typeId = params.typeId;
+      this.itemService.filters$.next([]);
       this.getCompanyList();      
       this.getItemList();
     });

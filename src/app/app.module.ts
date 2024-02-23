@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatChipsModule} from '@angular/material/chips';
     SidenavModule,
     CommonModule,
     FormsModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
