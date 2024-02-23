@@ -22,6 +22,12 @@ export class SidenavComponent implements OnInit {
       this.companyList = companies;
       console.log(this.companyList)
     });
+    this.itemService.filters$.subscribe((companyList: any) => {
+        const companyIds = companyList.map((company: any) => company.id);
+        this.companyList.forEach((company: any) => {
+          company.selected = companyIds.includes(company.id);
+        });
+    });
   }
 
   selectionChange(data: any) {
