@@ -20,7 +20,7 @@
     </div>
     <div *ngIf="itemList.length === 0">No items found.</div>
 </div>
-<div class="pagination-container" *ngIf="itemList.length">
+<div class="pagination-container" *ngIf="pageNumbers.length > 1">
     <nav aria-label="...">
         <ul class="pagination">
             <li class="page-item disabled">
