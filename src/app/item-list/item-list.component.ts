@@ -11,9 +11,9 @@ export class ItemListComponent implements OnInit {
   typeId: string = '';
   quantityList: any = [1, 2, 3, 4, 5];
   itemList: any = [];
-  pageSize: number = 10;
+  pageSize: number = 5;
   numberOfPages: number = 0;
-  pageNumbers: any = [1, 2, 3, 4, 5, 6, 7];
+  pageNumbers: any = [];
   seletedPage: number = 1;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -24,11 +24,17 @@ export class ItemListComponent implements OnInit {
       if(data) {
         this.itemList = data.results.map((item: any) => ({...item, quantity: 1}));
         this.numberOfPages = Math.ceil(data.totalResults / this.pageSize);
+        this.pageNumbers = [];
+        for(let i = 0; i < this.numberOfPages; i++) {
+          this.pageNumbers.push(i+1);
+        }
       }
     });
     this.activatedRoute.params.subscribe((params: any) => {
       this.itemService.typeId = params.typeId;
       this.itemService.filters$.next([]);
+      this.seletedPage = 1;
+      this.setPaginationInfo();
       this.getCompanyList();      
       this.getItemList();
     });
@@ -38,12 +44,26 @@ export class ItemListComponent implements OnInit {
     this.itemService.getCompanyList();
   }
 
+  setPaginationInfo() {
+    const data: any = {
+      pageSize: this.pageSize,
+      seletedPage: this.seletedPage
+    };
+    this.itemService.paginationData$.next(data);
+  }
+
   getItemList() {
     this.itemService.getItemList();
   }
 
   onSelectPage(i: any) {
     this.seletedPage = i;
+    this.setPaginationInfo();
+    let companyIds: any = [];
+    this.itemService.filters$.subscribe((companyList: any) => {
+      companyIds = companyList.map((company: any) => company.id);
+    }).unsubscribe();
+    this.itemService.getItemList(companyIds);
   }
 
   addToCart(item: any) {
