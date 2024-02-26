@@ -20,4 +20,13 @@ export class CartComponent implements OnInit {
     // })
   }
 
+  onQtyChange(cartIems: any) {
+    this.itemService.cartInfo$.next(cartIems);
+  }
+
+  onDelete(i: number, cartIems: any) {
+    cartIems.splice(i, 1);
+    this.itemService.cartInfo$.next(cartIems);
+  }
+
 }

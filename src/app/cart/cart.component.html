@@ -4,7 +4,7 @@
         <p>Price</p>
     </div>
     <ng-container *ngIf="cartItems.length; else noItems">
-        <div class="items" *ngFor="let item of cartItems">
+        <div class="items" *ngFor="let item of cartItems; let i = index">
             <div class="img-container">
                 <img [src]="item.imgUrl" width="150px" height="150px">
             </div>
@@ -17,10 +17,11 @@
                 <div>Eligible For Free Shipping</div>
                 <span class="qty-container">
                     <span>Qty: </span>
-                    <select name="quantity" autocomplete="off" [ngModel]="item.quantity">
+                    <select name="quantity" autocomplete="off" [(ngModel)]="item.quantity" (change)="onQtyChange(cartItems)">
                         <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
                     </select>
                 </span>
+                <button type="button" class="btn btn-link" (click)="onDelete(i, cartItems)">Delete</button>
             </div>
         </div>
     </ng-container>
