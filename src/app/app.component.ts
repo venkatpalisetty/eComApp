@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   user: any;
   isLoginPage: boolean = false;
   isCart: boolean = false;
+  isCheckout: boolean = false;
   constructor(public loginService: LoginService,
     private router: Router) {
     setTheme('bs5');
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
       if(e instanceof NavigationEnd) {
          this.isLoginPage = e.url.includes('login') || e.url.includes('forgotpwd') || e.url.includes('registration');
         this.isCart = e.url.includes('cart');
+        this.isCheckout = e.url.includes('checkout');
       }
     });
   }

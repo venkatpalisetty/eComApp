@@ -24,6 +24,9 @@ import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
+import { CheckoutModule } from './checkout/checkout.module';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import {MatSelectModule} from '@angular/material/select';
     CommonModule,
     FormsModule,
     MatChipsModule,
-    MatSelectModule
+    MatSelectModule,
+    CheckoutModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

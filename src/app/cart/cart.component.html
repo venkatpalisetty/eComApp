@@ -1,30 +1,36 @@
 <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
     <div class="header-content">
         <h4>Shopping Cart {{cartItems.length}}</h4>
-        <p>Price</p>
+        <span>Price</span>
     </div>
+    <hr>
     <ng-container *ngIf="cartItems.length; else noItems">
-        <div class="items" *ngFor="let item of cartItems; let i = index">
+        <div *ngFor="let item of cartItems; let i = index">
             <div class="img-container">
                 <img [src]="item.imgUrl" width="150px" height="150px">
-            </div>
-            <div class="description-container">
-                <div>
-                    <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
-                    <span>₹{{item.price}}</span>
+                <div class="description-container">
+                    <div class="cart-description">
+                        <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
+                        <div>₹ <span class="price">{{item.price}}</span></div>
+                    </div>
+                    <div style="margin-top: -15px;font-size: 14px;">In stock</div>
+                    <div style="font-size: 14px;">Eligible For Free Shipping</div>
+                    <span class="qty-container">
+                        <span>Qty: </span>
+                        <select name="quantity" class="quantity-list" autocomplete="off" [(ngModel)]="item.quantity"
+                            (change)="onQtyChange(cartItems)">
+                            <option [value]="num"  *ngFor="let num of quantityList">{{num}}</option>
+                        </select>
+                    </span>
+                    <button type="button" class="btn btn-link" (click)="onDelete(i, cartItems)">Delete</button>
                 </div>
-                <div class="">In stock</div>
-                <div>Eligible For Free Shipping</div>
-                <span class="qty-container">
-                    <span>Qty: </span>
-                    <select name="quantity" autocomplete="off" [(ngModel)]="item.quantity" (change)="onQtyChange(cartItems)">
-                        <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
-                    </select>
-                </span>
-                <button type="button" class="btn btn-link" (click)="onDelete(i, cartItems)">Delete</button>
-            </div>
+            </div><br>
+            <hr>
         </div>
     </ng-container>
+    <div class="sub-total">
+        <div class="sub-description">Subtotal ({{quantity}} items): ₹ <span>{{totalPrice}}</span></div>
+    </div>
     <ng-template #noItems>
         <div>No items added. Please add items.</div>
     </ng-template>
