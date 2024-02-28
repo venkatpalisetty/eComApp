@@ -1,0 +1,15 @@
+<h3>Your Addresses </h3>
+
+<a href="javascript: void(0)" (click)="openNewAddressPopup(addNewAddressTemplate)">+ Add new address</a>
+
+<ng-template #addNewAddressTemplate>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Add New Address</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        This is a modal.
+    </div>
+</ng-template>

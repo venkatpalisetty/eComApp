@@ -6,7 +6,7 @@ import { BehaviorSubject, of } from 'rxjs';
 })
 export class LoginService {
   user$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-
+  isCheckoutOn: boolean = false;
   constructor() { }
 
   validateUser(userName: string, password: string) {

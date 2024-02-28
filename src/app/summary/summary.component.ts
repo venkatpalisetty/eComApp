@@ -12,7 +12,7 @@ export class SummaryComponent implements OnInit {
   quantity: number = 0;
   totalPrice: number = 0;
   constructor(public itemService: ItemService,
-    private loginService: LoginService, private router: Router) { }
+    public loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.itemService.cartInfo$.subscribe((cartItems: any) => {
@@ -23,8 +23,9 @@ export class SummaryComponent implements OnInit {
   onProceedToBuy() {
     this.loginService.user$.subscribe((user) => {
       if(user) {
-
+        this.router.navigate(['/checkout']);
       } else {
+        this.loginService.isCheckoutOn = true;
         this.router.navigate(['/login']);
       }
     })

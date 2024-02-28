@@ -39,7 +39,11 @@ export class LoginComponent implements OnInit {
         if (isValid) {
           sessionStorage.setItem('user', JSON.stringify(this.loginForm.value));
           this.loginService.user$.next(this.loginForm.value);
-          this.router.navigate(['/home']);
+          if(this.loginService.isCheckoutOn) {
+            this.router.navigate(['/checkout']);
+          } else {
+            this.router.navigate(['/home']);
+          }
         } else {
           this.handleError();
         }
