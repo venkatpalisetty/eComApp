@@ -26,7 +26,6 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import { CheckoutModule } from './checkout/checkout.module';
 
-import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -57,7 +56,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatChipsModule,
     MatSelectModule,
     CheckoutModule,
-    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

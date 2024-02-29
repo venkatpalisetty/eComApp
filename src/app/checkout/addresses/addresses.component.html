@@ -1,15 +1,13 @@
 <h3>Your Addresses </h3>
+<div class="address-container">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let address of addressList">
+          <input class="form-check-input me-1" name="address" checked type="radio" value="" aria-label="...">
+          {{address.name}}, {{address.address1}}, {{address.address2 ? address.address2 + ',' : ''}} {{address.landMark}}, {{address.city}}, {{getState(address.state)}}, {{getCountry(address.country)}}, {{address.pin}} | 
+          <button type="button" class="btn btn-link" (click)="openNewAddressPopup()"> Edit address</button>    
+        </li>
+      </ul>
+</div>
 
-<a href="javascript: void(0)" (click)="openNewAddressPopup(addNewAddressTemplate)">+ Add new address</a>
 
-<ng-template #addNewAddressTemplate>
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">Add New Address</h4>
-        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
-            <span aria-hidden="true" class="visually-hidden">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        This is a modal.
-    </div>
-</ng-template>
+<button type="button" class="btn btn-link" (click)="openNewAddressPopup()">+ Add new address</button>

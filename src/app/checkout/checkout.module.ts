@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { CheckoutComponent } from './checkout.component';
 import { AddressesComponent } from './addresses/addresses.component';
 import { AddNewAddressComponent } from './add-new-address/add-new-address.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     CheckoutComponent,
     AddressesComponent,
-    AddNewAddressComponent
+    AddNewAddressComponent,
   ],
   imports: [
     CommonModule,
-    ModalModule.forChild()
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CheckoutModule { }
