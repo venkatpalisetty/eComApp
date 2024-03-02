@@ -58,4 +58,8 @@ export class AddNewAddressComponent implements OnInit {
     });
   }
 
+  saveAddress() {
+    this.dialogRef.close(this.addNewAddressForm.value);
+  }
+
 }

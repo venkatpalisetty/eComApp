@@ -1,2 +1,31 @@
-<h2>1. Select Delivery Address</h2>
-<app-addresses></app-addresses>
+<mat-accordion>
+    <mat-expansion-panel hideToggle [expanded]="selectedIndex == 1">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                1. Select Delivery Address {{selectedIndex}}
+            </mat-panel-title>
+            <mat-panel-description *ngIf="selectedIndex != 1">
+                <div class="d-flex">
+                <div>
+                    {{selectedAddress.name}}, {{selectedAddress.address1}}, {{selectedAddress.address2 ?
+                    selectedAddress.address2 + ',' : ''}} {{selectedAddress.landMark}}, {{selectedAddress.city}},
+                    {{getState(selectedAddress.state)}}, {{getCountry(selectedAddress.country)}},
+                    {{selectedAddress.pin}}
+                </div>
+                <div>
+                    <button type="button" class="btn btn-link" (click)="onChangeOption(1)">Change</button>
+                </div>
+            </div>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-addresses (selectAddress)="onSelectAddress($event)"></app-addresses>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle [expanded]="selectedIndex == 2">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                2. Select Payment Method
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Payment methods</p>
+    </mat-expansion-panel>
+</mat-accordion>

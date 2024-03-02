@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewAddressComponent } from '../add-new-address/add-new-address.component';
 import { LoginService } from 'src/app/services/login.service';
@@ -9,6 +9,7 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./addresses.component.scss']
 })
 export class AddressesComponent implements OnInit {
+  @Output() selectAddress: EventEmitter<any> = new EventEmitter<any>();
   dialogRef: any;
   addressList: any = [];
   countryList: any = [
@@ -36,8 +37,10 @@ export class AddressesComponent implements OnInit {
       data: {},
     });
 
-    this.dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed');
+    this.dialogRef.afterClosed().subscribe((newAddress: any) => {
+       if(newAddress) {
+        this.addressList.push(newAddress);
+       }
     });
   }
   getCountry(id: any) {
@@ -48,6 +51,9 @@ export class AddressesComponent implements OnInit {
   getState(id: any) {
     const selectedState = this.stateList.find((s: any) => s.id == id);
     return selectedState ? selectedState.name : '';
+  }
+  goToPayment() {
+    this.selectAddress.emit(this.addressList.find((address: any) => address.isDefault));
   }
 
 }
