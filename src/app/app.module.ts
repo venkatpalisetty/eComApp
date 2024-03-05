@@ -25,6 +25,7 @@ import { CartComponent } from './cart/cart.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import { CheckoutModule } from './checkout/checkout.module';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { CheckoutModule } from './checkout/checkout.module';
     ForgotpwdComponent,
     RegistrationComponent,
     CartComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,

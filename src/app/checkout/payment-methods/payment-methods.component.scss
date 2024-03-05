@@ -1,0 +1,25 @@
+.mat-expansion-panel.mat-expanded {
+    background: rgb(214, 211, 223);
+  }
+.form-check{
+    margin-left: 5px;
+.form-check-label{
+    color:rgba(0, 0, 0, 0.87);
+    font-weight: 500;
+    margin-top: 2px;
+}
+}
+.img{
+    display:flex;
+    gap: 20px;
+    .rupay{
+        margin-top: -7px;
+    }
+}
+.form-group{
+    width: 200px;
+}
+.action-container {
+    margin-top: 20px;
+    text-align: center;
+}

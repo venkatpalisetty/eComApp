@@ -2,7 +2,7 @@
     <mat-expansion-panel hideToggle [expanded]="selectedIndex == 1">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                1. Select Delivery Address {{selectedIndex}}
+                1. Select Delivery Address
             </mat-panel-title>
             <mat-panel-description *ngIf="selectedIndex != 1">
                 <div class="d-flex">
@@ -23,9 +23,46 @@
     <mat-expansion-panel hideToggle [expanded]="selectedIndex == 2">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                2. Select Payment Method
+                2. Gift Options
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <p>Payment methods</p>
+        <div>
+            <h2>No gifts available</h2>
+            <div class="action-container">
+                <button type="button" class="btn btn-primary" (click)="onChangeOption(3)">Go To Payment Method</button>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle [expanded]="selectedIndex == 3">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                3. Select Payment Method
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-payment-methods (completePayment)="onCompletePayment()"></app-payment-methods>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle [expanded]="selectedIndex == 4">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                4. Offers
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+            <h2>No offers available</h2>
+            <div class="action-container">
+                <button type="button" class="btn btn-primary" (click)="onChangeOption(5)">View Order</button>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle [expanded]="selectedIndex == 5">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                5. Items and Delivery
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+            <h2>Order Details</h2>
+           
+        </div>
     </mat-expansion-panel>
 </mat-accordion>

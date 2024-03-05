@@ -1,0 +1,97 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle (opened)="changeSelection(1)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-panel-description>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" [checked]="selectedIndex == 1" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Credit or debit card
+                        </label>
+                    </div>
+                </mat-panel-description>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="img">
+            <div>
+                <img src="../../assets/images/visa.gif" width="50px" height="50px">
+            </div>
+            <div class="rupay">
+                <img src="../../assets/images/rupay.png" width="70px" height="70px">
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle (opened)="changeSelection(2)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-panel-description>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" [checked]="selectedIndex == 2" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Net Banking
+                        </label>
+                    </div>
+                </mat-panel-description>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="form-group">
+            <select class="form-select" name="bankname" autocomplete="off">
+                <option *ngFor="let list of bankList" [value]="list">
+                    {{ list }}
+                </option>
+            </select>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle (opened)="changeSelection(3)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-panel-description>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" [checked]="selectedIndex == 3" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Other UPI Apps
+                        </label>
+                    </div>
+                </mat-panel-description>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle (opened)="changeSelection(4)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-panel-description>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" [checked]="selectedIndex == 4" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            EMI
+                        </label>
+                    </div>
+                </mat-panel-description>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="form-group">
+            <select class="form-select" name="bankname" autocomplete="off">
+                <option *ngFor="let list of emiList" [value]="list">
+                    {{ list }}
+                </option>
+            </select>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle (opened)="changeSelection(5)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-panel-description>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" [checked]="selectedIndex == 5" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Cash on Delivery/pay on Delivery
+                        </label>
+                    </div>
+                </mat-panel-description>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>
+<div class="action-container">
+    <button type="button" class="btn btn-primary" [disabled]="selectedIndex == 0" (click)="onPaymentComplete()">Use this Payment Method</button>
+</div>

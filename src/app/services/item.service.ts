@@ -88,4 +88,8 @@ export class ItemService {
     const temp = this.companies.filter((company: any) => company.typeId == this.typeId);
     this.companies$.next(temp)
   }
+
+  getItem(id: any) {
+    return this.items.find((item: any) => item.id == id);
+  }
 }

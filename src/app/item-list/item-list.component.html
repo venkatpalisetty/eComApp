@@ -3,7 +3,7 @@
     <div class="items">
         <ng-container *ngFor="let item of itemList; let i =  index">
             <br *ngIf="i > 0 && i % 4 == 0" />
-            <div class="item">
+            <div class="item" (click)="goToDetails(item.id)">
                 <img [src]="item.imgUrl" width="180px" height="180px">
                 <div class="name">{{item.name}}</div>
                 <div class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</div>
@@ -13,8 +13,8 @@
                         <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
                     </select>
                 </span>
-                <button type="button" class="btn btn-warning" (click)="addToCart(item)">Add to Cart</button>
-                <button type="button" class="btn btn-info">Buy Now</button>
+                <button type="button" class="btn btn-warning" (click)="addToCart(item, $event)">Add to Cart</button>
+                <button type="button" class="btn btn-info" (click)="onProceedToBuy(item, $event)">Buy Now</button>
             </div>
         </ng-container>        
     </div>
