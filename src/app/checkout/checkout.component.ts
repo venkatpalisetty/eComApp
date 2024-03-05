@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../services/item.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,9 +21,9 @@ export class CheckoutComponent implements OnInit {
     { id: 3, name: 'UP'},
     { id: 3, name: 'MP'},
   ];
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
   onSelectAddress(address: any) {
@@ -42,6 +43,11 @@ export class CheckoutComponent implements OnInit {
 
   onChangeOption(index: number) {
     this.selectedIndex = index;
+  }
+
+  onCompletePayment() {
+    this.selectedIndex = 4;
+    this.itemService.cartInfo$.next([]);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemService } from '../services/item.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-item-list',
@@ -17,7 +18,9 @@ export class ItemListComponent implements OnInit {
   seletedPage: number = 1;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private itemService: ItemService) { }
+    private itemService: ItemService,
+    private loginService: LoginService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.itemService.itemsData.subscribe((data: any) => {
@@ -66,13 +69,30 @@ export class ItemListComponent implements OnInit {
     this.itemService.getItemList(companyIds);
   }
 
-  addToCart(item: any) {
+  addToCart(item: any, event: any) {
     let items: any;
     this.itemService.cartInfo$.subscribe((cartInfo: any) => {
       items = cartInfo;
     }).unsubscribe();
     
     this.itemService.cartInfo$.next([...items, item]);
+    event.stopPropagation();
+  }
+
+  onProceedToBuy(item: any, event: any) {
+    this.addToCart(item, event);
+    this.loginService.user$.subscribe((user) => {
+      if(user) {
+        this.router.navigate(['/checkout']);
+      } else {
+        this.loginService.isCheckoutOn = true;
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
+  goToDetails(itemId: any) {
+    this.router.navigate(['itemDetails', itemId]);
   }
 
 }

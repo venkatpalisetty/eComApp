@@ -6,6 +6,7 @@ import { AddNewAddressComponent } from './add-new-address/add-new-address.compon
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CheckoutComponent,
     AddressesComponent,
     AddNewAddressComponent,
+    PaymentMethodsComponent
   ],
   imports: [
     CommonModule,
