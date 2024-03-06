@@ -1,15 +1,30 @@
 <div class="summary-container" *ngIf="!loginService.isCheckoutOn; else checkoutSummary">
     <div class="header-container">
+        <span style="color: green;"><i class="bi bi-check-circle-fill"></i></span>
         <p class="header-content">Your order is eligible for FREE Delivery</p>
-        <p class="header-content">Select this option at checkout. <a href="">Details</a></p>
     </div>
-    <div class="subtotal">Subtotal ({{quantity}} items): <span>₹{{totalPrice}}</span></div>
+    <p class="content">Select this option at checkout. <a href="">Details</a></p>
+    <div class="subtotal">Subtotal ({{quantity}} items): <span>{{totalPrice | currency:'INR'}}</span></div>
     <div class="checkbox-content">
-        <input type="checkbox" checked/>
+        <input type="checkbox" checked />
         <span>This order contains a gift</span>
     </div>
     <button type="button" class="btn btn-warning" (click)="onProceedToBuy()">Proceed to Buy</button>
 </div>
 <ng-template #checkoutSummary>
-    <div class="summary-container">Checkout summary content</div>
+    <div class="order-summary">
+        <button type="button" class="btn btn-warning payment-method">Use this payment methods</button>
+        <p>Choose a payment method to continue checking out.
+            You will still have a chance to review and edit your order before it is final
+        </p>
+        <hr>
+        <h5>Order Summary</h5>
+        <div>Items:<span class="details">{{totalPrice | currency:'INR'}}</span></div>
+        <div>Delivery:<span class="details">{{deleveryCharges | currency:'INR'}}</span></div>
+        <div>Total: <span class="details">{{totalAmount | currency:'INR'}}</span></div>
+        <div>Promotion Applied:<span class="details">-{{promotions | currency:'INR'}}</span></div>
+        <hr>
+        <div class="totalorder">Order Total: <span class="details">{{totalOrder | currency:'INR'}}</span></div>
+        <hr>
+    </div>
 </ng-template>

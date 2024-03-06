@@ -19,7 +19,8 @@
         flex-grow: 4;
     }
     .right-menu{
+        flex-grow: 1;
         border: 2px solid #ddd;
-        height: 224px;
+        overflow: hidden;
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { setTheme } from 'ngx-bootstrap/utils';
 import { LoginService } from './services/login.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
 
 @Component({
@@ -12,8 +12,9 @@ import { filter, map } from 'rxjs';
 export class AppComponent implements OnInit {
   title = 'eComApp';
   user: any;
-  isLoginPage: boolean = false;
+  isLoginPage: boolean = true;
   isCart: boolean = false;
+  isItemList: boolean = false;
   isCheckout: boolean = false;
   constructor(public loginService: LoginService,
     private router: Router) {
@@ -25,10 +26,11 @@ export class AppComponent implements OnInit {
     //    this.user = user;
     // });
     this.router.events.subscribe(e => {
-      if(e instanceof NavigationEnd) {
-         this.isLoginPage = e.url.includes('login') || e.url.includes('forgotpwd') || e.url.includes('registration');
+      if(e instanceof NavigationStart) {
+        this.isLoginPage = e.url.includes('login') || e.url.includes('forgotpwd') || e.url.includes('registration');
         this.isCart = e.url.includes('cart');
-        this.isCheckout = e.url.includes('checkout');
+        this.loginService.isCheckoutOn = this.isCheckout = e.url.includes('checkout');
+        this.isItemList = e.url.includes('itemList');
       }
     });
   }

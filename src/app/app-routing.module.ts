@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent, title: 'checkout'},
   {path: 'itemList/:typeId', component: ItemListComponent, title: 'Item List'},
   {path: 'itemDetails/:itemId', component: ItemDetailComponent, title: 'Item Details'},
-  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: PageNotFoundComponent}
 ];
 
