@@ -8,15 +8,15 @@
       <router-outlet></router-outlet>
     </mat-drawer-content>
   </mat-drawer-container> -->
-  <app-toolbar *ngIf="!isCart && !isCheckout"></app-toolbar>
+  <app-toolbar *ngIf="isItemList"></app-toolbar>
 </ng-container>
 <div class="main-container">
-  <ng-container *ngIf="!isLoginPage && !isCart && !isCheckout">
+  <ng-container *ngIf="isItemList">
     <div class="side-menu">
       <app-sidenav></app-sidenav>
     </div>
   </ng-container>
-  <div class="main-content" >
+  <div class="main-content">
     <router-outlet></router-outlet>
   </div>
   <div class="right-menu" *ngIf="isCart || isCheckout">

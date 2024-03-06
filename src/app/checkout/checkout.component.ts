@@ -43,11 +43,13 @@ export class CheckoutComponent implements OnInit {
 
   onChangeOption(index: number) {
     this.selectedIndex = index;
+    if(index == 5) {      
+      this.itemService.cartInfo$.next([]);
+    }
   }
 
   onCompletePayment() {
     this.selectedIndex = 4;
-    this.itemService.cartInfo$.next([]);
   }
 
 }

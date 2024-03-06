@@ -85,7 +85,6 @@ export class ItemListComponent implements OnInit {
       if(user) {
         this.router.navigate(['/checkout']);
       } else {
-        this.loginService.isCheckoutOn = true;
         this.router.navigate(['/login']);
       }
     });
