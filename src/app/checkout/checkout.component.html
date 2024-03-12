@@ -4,7 +4,7 @@
             <mat-panel-title>
                 1. Select Delivery Address
             </mat-panel-title>
-            <mat-panel-description *ngIf="selectedIndex != 1">
+            <mat-panel-description *ngIf="selectedIndex > 1 && selectedIndex != 1">
                 <div class="d-flex">
                     <div>
                         {{selectedAddress.name}}, {{selectedAddress.address1}}, {{selectedAddress.address2 ?
@@ -25,6 +25,16 @@
             <mat-panel-title>
                 2. Gift Options
             </mat-panel-title>
+            <mat-panel-description *ngIf="selectedIndex > 2 && selectedIndex != 2">
+                <div class="d-flex">
+                    <div>
+                       No Gifts selected
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-link" (click)="onChangeOption(2)">Change</button>
+                    </div>
+                </div>
+            </mat-panel-description>
         </mat-expansion-panel-header>
         <div>
             <h2>No gifts available</h2>
@@ -37,15 +47,34 @@
         <mat-expansion-panel-header>
             <mat-panel-title>
                 3. Select Payment Method
-            </mat-panel-title>
+            </mat-panel-title> 
+            <mat-panel-description *ngIf="selectedIndex > 3 && selectedIndex != 3">
+                <div class="d-flex">
+                    <div>
+                       {{selectedPaymentDetails}}
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-link" (click)="onChangeOption(3)">Change</button>
+                    </div>
+                </div>
+            </mat-panel-description>
         </mat-expansion-panel-header>
-        <app-payment-methods (completePayment)="onCompletePayment()"></app-payment-methods>
+        <app-payment-methods (completePayment)="onCompletePayment($event)"></app-payment-methods>
     </mat-expansion-panel>
     <mat-expansion-panel hideToggle [expanded]="selectedIndex == 4">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 4. Offers
-            </mat-panel-title>
+            </mat-panel-title> <mat-panel-description *ngIf="selectedIndex > 4 && selectedIndex != 4">
+                <div class="d-flex">
+                    <div>
+                       No Offers selected
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-link" (click)="onChangeOption(4)">Change</button>
+                    </div>
+                </div>
+            </mat-panel-description>
         </mat-expansion-panel-header>
         <div>
             <h2>No offers available</h2>
@@ -57,18 +86,7 @@
     <mat-expansion-panel hideToggle [expanded]="selectedIndex == 5">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                5. Items and Delivery
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div>
-            <h2>Order Details</h2>
-        </div>
-        <app-payment-methods></app-payment-methods>
-    </mat-expansion-panel>
-    <mat-expansion-panel hideToggle [expanded]="selectedIndex == 6">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                6. Review Items and Delivery
+                5. Review Items and Delivery
             </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">

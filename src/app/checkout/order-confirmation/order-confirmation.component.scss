@@ -1,6 +1,5 @@
 .order-container {
     width: 740px;
-    height: 435px;
     border: 1px solid gray;
     border-radius: 5px;
     margin: auto;
@@ -32,6 +31,12 @@
             font-weight: 500;
             font-size: 18px;
         }
+    }
+    .item-container {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    
     }
     .placedDate{
         font-weight: 500;
