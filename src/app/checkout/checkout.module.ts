@@ -7,6 +7,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PaymentMethodsComponent } from './payment-methods/payment-methods.compo
     CheckoutComponent,
     AddressesComponent,
     AddNewAddressComponent,
-    PaymentMethodsComponent
+    PaymentMethodsComponent,
+    OrderConfirmationComponent
   ],
   imports: [
     CommonModule,

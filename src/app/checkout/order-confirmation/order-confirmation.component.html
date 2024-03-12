@@ -1,0 +1,25 @@
+<div class="order-container">
+    <div class="order-descrition">
+    <span><i class="bi bi-check-circle-fill"></i></span>
+    <div>Order placed, thank you!</div>
+  </div>
+    <div class="descrition">Confirmation wiil be sent to <span class="msg">Message Centre.</span></div>
+    <div class="address-description"><span class="address">Shiping to Venkata Nageswararao palisetty,</span> Pillutla,Machavaram M, Guntur District,PIDUGURALLA,ANDRA PRADESH, 522413,India</div>
+    <hr>
+    <div class="placedDate">Monday,11 Mar</div>
+    <div class="">Delivery date</div>
+    <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
+        <ng-container *ngIf="cartItems.length; else noItems">
+            <div *ngFor="let item of cartItems; let i = index">
+                <div class="img-container">
+                    <img [src]="item.imgUrl" width="150px" height="150px">
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noItems>
+            <div>No items added. Please add items.</div>
+        </ng-template>
+    </div>
+    <div class="review">Review or edit your recet orders ></div>
+</div>
+

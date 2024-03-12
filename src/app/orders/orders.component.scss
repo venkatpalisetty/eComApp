@@ -1,0 +1,57 @@
+.order-container {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 20px;
+    width: 97%;
+    height: 512px;
+    margin: 20px;
+
+    .order-descrition {
+        display: flex;
+        gap: 110px;
+        margin-top: 10px;
+        color:gray;
+    }
+
+    .descrition {
+        display: flex;
+        gap: 112px;
+        color:gray;
+    }
+   .arrived {
+        font-weight: 500;
+        font-size: 20px;
+   }
+   .patched{
+    color: green;
+   }
+    .img-container {
+        display: flex;
+        gap: 80px;
+        margin-top: 36px;
+        .description {
+            font-weight: 500;
+            font-size: 18px;
+            color:rgb(14, 138, 187);
+        }
+    }
+
+    .button-container {
+        float: right;
+        position: relative;
+        top: -147px;
+        right: 16px;
+    
+        button {
+            border-radius: 9px;
+            font-size: 13px;
+            width: 267px;
+        }
+    }
+    hr{
+        width:100%;
+    }
+    .archive{
+        color:rgb(14, 138, 187);
+    }
+}

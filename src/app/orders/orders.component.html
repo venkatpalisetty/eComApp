@@ -1,0 +1,39 @@
+<div class="order-container">
+    <div class="order-descrition">
+        <div>ORDER PLACED</div>
+        <div>TOTAL</div>
+        <div>SHIP TO</div>
+        <div style="margin-left: 477px;">ORDER# 406-4371627-4309159</div>
+    </div>
+    <div class="descrition">
+        <div>9 March 2024</div>
+        <div>₹264.00</div>
+        <div>Venkata Nageswararao palisetty</div>
+        <div style="margin-left: 242px;">View order details</div>
+        <div>Invoice</div>
+    </div>
+    <hr>
+    <div class="arrived">Arriving Monday</div>
+    <div class="patched">Not yet disatched</div>
+    <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
+        <ng-container *ngIf="cartItems.length; else noItems">
+            <div *ngFor="let item of cartItems; let i = index">
+                <div class="img-container">
+                    <img [src]="item.imgUrl" width="150px" height="150px">
+                    <div class="description-container">
+                        <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button  class="btn btn-warning">Track package</button><br><br>
+                    <button  class="btn btn-light">View or edit order</button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noItems>
+            <div>No items added. Please add items.</div>
+        </ng-template>
+    </div>
+    <hr>
+    <div class="archive">Archive order</div>
+</div>

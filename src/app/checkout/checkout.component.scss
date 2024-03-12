@@ -1,0 +1,96 @@
+.cart-container {
+    padding: 15px 15px 80px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+
+    .arrive-date {
+        font-size: 25px;
+        font-weight: 500;
+        color: green;
+        margin-bottom: 9px;
+    }
+
+    .img-container {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        margin-top: 15px;
+
+        .description-container {
+            flex-grow: 1;
+
+            .description {
+                font-weight: 500;
+                font-size: 18px;
+            }
+
+            .total-price {
+                margin-top: -3px;
+
+                del {
+                    font-size: 20px;
+                }
+
+                .price {
+                    margin-left: 6px;
+                    color: rgb(175, 58, 58);
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+            }
+
+            .quantity-list {
+                border-radius: 5px;
+                background: #eee;
+
+                &:hover {
+                    background: #ccc;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .delivery-container {
+            .delivery-description {
+                font-weight: 500;
+                font-size: 18px;
+            }
+
+            label {
+                color: green;
+                font-size: 17px;
+            }
+
+            .free-delevery {
+                margin-left: 21px;
+                margin-top: -4px;
+            }
+        }
+    }
+
+    .total-order {
+        display: flex;
+        margin-top: 35px;
+
+        button {
+            border-radius: 9px;
+            font-size: 13px;
+            margin-right: 18px;
+            margin-top: -7px;
+        }
+
+        .totalorder {
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: -5px;
+            color: rgb(199, 16, 16);
+        }
+
+    }
+
+    .placing-description {
+        margin-left: 140px;
+        margin-top: -6px;
+    }
+
+}
