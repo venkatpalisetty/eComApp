@@ -9,6 +9,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { OrderConfirmationComponent } from './checkout/order-confirmation/order-confirmation.component';
+import { AccountComponent } from './account/account.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, title: 'Login'},
@@ -17,6 +20,9 @@ const routes: Routes = [
   {path: 'registration', component: RegistrationComponent, title: 'New User'},
   {path: 'cart', component: CartComponent, title: 'cart'},
   {path: 'checkout', component: CheckoutComponent, title: 'checkout'},
+  {path: 'orderConfirmation', component: OrderConfirmationComponent, title: 'orderConfirmation'},
+  {path: 'account', component: AccountComponent, title: 'account'},
+  {path: 'orders', component: OrdersComponent, title: 'orders'},
   {path: 'itemList/:typeId', component: ItemListComponent, title: 'Item List'},
   {path: 'itemDetails/:itemId', component: ItemDetailComponent, title: 'Item Details'},
   {path: '', pathMatch: 'full', redirectTo: 'home'},

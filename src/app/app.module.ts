@@ -26,6 +26,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import { CheckoutModule } from './checkout/checkout.module';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { OrdersComponent } from './orders/orders.component';
+import { AccountModule } from './account/account.module';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
     ForgotpwdComponent,
     RegistrationComponent,
     CartComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
     MatChipsModule,
     MatSelectModule,
     CheckoutModule,
+    AccountModule
   ],
   providers: [],
   bootstrap: [AppComponent]

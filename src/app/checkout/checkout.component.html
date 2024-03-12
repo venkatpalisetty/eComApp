@@ -6,16 +6,16 @@
             </mat-panel-title>
             <mat-panel-description *ngIf="selectedIndex != 1">
                 <div class="d-flex">
-                <div>
-                    {{selectedAddress.name}}, {{selectedAddress.address1}}, {{selectedAddress.address2 ?
-                    selectedAddress.address2 + ',' : ''}} {{selectedAddress.landMark}}, {{selectedAddress.city}},
-                    {{getState(selectedAddress.state)}}, {{getCountry(selectedAddress.country)}},
-                    {{selectedAddress.pin}}
+                    <div>
+                        {{selectedAddress.name}}, {{selectedAddress.address1}}, {{selectedAddress.address2 ?
+                        selectedAddress.address2 + ',' : ''}} {{selectedAddress.landMark}}, {{selectedAddress.city}},
+                        {{getState(selectedAddress.state)}}, {{getCountry(selectedAddress.country)}},
+                        {{selectedAddress.pin}}
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-link" (click)="onChangeOption(1)">Change</button>
+                    </div>
                 </div>
-                <div>
-                    <button type="button" class="btn btn-link" (click)="onChangeOption(1)">Change</button>
-                </div>
-            </div>
             </mat-panel-description>
         </mat-expansion-panel-header>
         <app-addresses (selectAddress)="onSelectAddress($event)"></app-addresses>
@@ -62,7 +62,63 @@
         </mat-expansion-panel-header>
         <div>
             <h2>Order Details</h2>
-           
+        </div>
+        <app-payment-methods></app-payment-methods>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle [expanded]="selectedIndex == 6">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                6. Review Items and Delivery
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
+            <ng-container *ngIf="cartItems.length; else noItems">
+                <div class="arrive-date">Arriving {{date | date:'dd MMM yyyy' }}</div>
+                <div>If you order in the next 4 hours and 23 minutes (Details)</div>
+                <div>Items dispatched by Amazon<img src="../../assets/images/aFullfilled.jfif" width="146px"
+                        height="50px"></div>
+                <div *ngFor="let item of cartItems; let i = index">
+                    <div class="img-container">
+                        <img [src]="item.imgUrl" width="150px" height="150px">
+                        <div class="description-container">
+                            <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
+                            <div style="margin-top: -15px;font-size: 14px;">In stock</div>
+                            <div style="font-size: 14px;">Eligible For Free Shipping</div>
+                            <div class="total-price"><del>₹30</del><span class="price">{{item.price |
+                                    currency:'INR'}}</span><img src="../../assets/images/aFullfilled.jfif" width="146px"
+                                    height="50px"></div>
+                            <span class="qty-container">
+                                <span>Qty: </span>
+                                <select name="quantity" class="quantity-list" autocomplete="off"
+                                    [(ngModel)]="item.quantity" (change)="onQtyChange(cartItems)">
+                                    <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="delivery-container">
+                            <div class="delivery-description">Choose delivery option:</div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1" checked>
+                                    Saturday 9 mar
+                                </label>
+                            </div>
+                            <div class="free-delevery">FREE Delivery</div>
+                        </div>
+                    </div><br>
+                    <hr>
+                </div>
+            </ng-container>
+            <div class="total-order">
+                <button type="button" class="btn btn-warning" (click)="placeorder()">Place your Order</button>
+                <div class="totalorder">Order Total: <span class="details">{{totalOrder | currency:'INR'}}</span></div>
+            </div>
+            <p class="placing-description">By placing your order, you agree to Amazon's privacy notice and conditions of
+                use.</p>
+            <ng-template #noItems>
+                <div>No items added. Please add items.</div>
+            </ng-template>
         </div>
     </mat-expansion-panel>
 </mat-accordion>

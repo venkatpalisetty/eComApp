@@ -9,7 +9,7 @@
                 <div class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</div>
                 <div class="price"><span>₹{{item.price}}</span> M.R.P: <del>₹30</del> (7% off)</div>
                 <span class="quantity">Quantity:
-                    <select name="quantity" autocomplete="off" [(ngModel)]="item.quantity">
+                    <select name="quantity" autocomplete="soff" [(ngModel)]="item.quantity">
                         <option [value]="num" *ngFor="let num of quantityList">{{num}}</option>
                     </select>
                 </span>

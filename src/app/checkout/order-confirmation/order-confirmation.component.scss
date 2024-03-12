@@ -1,0 +1,47 @@
+.order-container {
+    width: 740px;
+    height: 435px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 45px;
+
+    .order-descrition {
+        display: flex;
+        gap: 10px;
+        font-weight: 500;
+        color: green;
+        font-size: 22px;
+    }
+
+    .descrition {
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 14px;
+
+        .msg {
+            color: green;
+        }
+    }
+
+    .address-description {
+        margin-top: 12px;
+
+        .address {
+            font-weight: 500;
+            font-size: 18px;
+        }
+    }
+    .placedDate{
+        font-weight: 500;
+        font-size: 18px;
+    }
+    .img-container{
+        margin-left: 280px;
+    }
+    .review{
+        margin-top: 15px;
+        color: green;
+    }
+}
