@@ -9,18 +9,20 @@ export class PaymentMethodsComponent implements OnInit {
   bankList: any = ["Choose an Option","SBI","ICIC","HDFC","AXIS"];
   emiList: any = ["Select EMI options"];
   selectedIndex: number = 0;
+  selectedPaymentDetails: any ='';
   @Output() completePayment: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  changeSelection(index: number) {
+  changeSelection(index: number, paymentDetails: any) {
     this.selectedIndex = index;
+    this.selectedPaymentDetails = paymentDetails;
   }
 
   onPaymentComplete() {
-    this.completePayment.emit();
+    this.completePayment.emit(this.selectedPaymentDetails);
   }
   
 }

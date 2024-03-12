@@ -32,6 +32,7 @@ export class CheckoutComponent implements OnInit {
   deleveryCharges: any = 200;
   promotions: any = 200;
   date = new Date();
+  selectedPaymentDetails: any ='';
   constructor(public itemService:ItemService,private route:Router) { }
 
   ngOnInit(): void {
@@ -62,14 +63,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   onChangeOption(index: number) {
-    this.selectedIndex = index;
-    if(index == 5) {      
-      this.itemService.cartInfo$.next([]);
-    }
+    this.selectedIndex = index;    
   }
 
-  onCompletePayment() {
+  onCompletePayment(paymentDetails: string) {
     this.selectedIndex = 4;
+    this.selectedPaymentDetails = paymentDetails;
   }
 
   
