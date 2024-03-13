@@ -15,7 +15,7 @@
     </div>
     <div class="user-info">
         Hello, 
-        <span *ngIf="loginService.user$ | async as user; else singIn">{{user.userName}}</span>
+        <span class="loginUser" *ngIf="loginService.user$ | async as user; else singIn" (click)="orders()">{{user.userName}}</span>
         <ng-template #singIn>
             <a routerLink="login">Sign in!</a>
         </ng-template>

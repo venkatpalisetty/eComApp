@@ -1,0 +1,40 @@
+<div class="cancel-order-container">
+    <div class="cancel-order-header">
+        Are you sure you want to cancel this order?
+    </div>
+    <div class="item-list">Items Ordered</div>
+    <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
+        <ng-container *ngIf="cartItems.length; else noItems">
+            <div *ngFor="let item of cartItems; let i = index">
+                <div class="item-container">
+                    <div class="img-container">
+                        <div>
+                            <img [src]="item.imgUrl" width="150px" height="150px">
+                        </div>
+                        <div class="description-container">
+                            <p class="description">Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)</p>
+                            <div class="price">{{item.price | currency:'INR'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noItems>
+            <div>No items added. Please add items.</div>
+        </ng-template>
+    </div>
+    <div class="cancel-options">
+        Reason for cancellation (optional):
+        <div class="form-group">
+            <select class="form-select" autocomplete="off">
+                <option *ngFor="let option of reasonsforcancellation" [value]="option">
+                    {{ option }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="btn btn-warning">Cancel selected items in this order</button><br><br>
+        <button type="button" class="btn btn-light">Return to order summary</button>
+    </div>
+</div>

@@ -71,11 +71,6 @@ export class CheckoutComponent implements OnInit {
     this.selectedPaymentDetails = paymentDetails;
   }
 
-  
-  
-
- 
-
   onQtyChange(cartIems: any) {
     this.itemService.cartInfo$.next(cartIems);
   }
