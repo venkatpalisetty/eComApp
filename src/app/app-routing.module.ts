@@ -12,6 +12,9 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { OrderConfirmationComponent } from './checkout/order-confirmation/order-confirmation.component';
 import { AccountComponent } from './account/account.component';
 import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { TrackingComponent } from './tracking/tracking.component';
+import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, title: 'Login'},
@@ -23,6 +26,9 @@ const routes: Routes = [
   {path: 'orderConfirmation', component: OrderConfirmationComponent, title: 'orderConfirmation'},
   {path: 'account', component: AccountComponent, title: 'account'},
   {path: 'orders', component: OrdersComponent, title: 'orders'},
+  {path: 'orderDetails', component: OrderDetailsComponent, title: 'orderDetails'},
+  {path: 'tracking', component: TrackingComponent, title: 'track'},
+  {path: 'cancelOrder', component: CancelOrderComponent, title: 'cancelOrder'},
   {path: 'itemList/:typeId', component: ItemListComponent, title: 'Item List'},
   {path: 'itemDetails/:itemId', component: ItemDetailComponent, title: 'Item Details'},
   {path: '', pathMatch: 'full', redirectTo: 'home'},

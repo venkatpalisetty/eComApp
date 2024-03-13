@@ -28,7 +28,10 @@ import { CheckoutModule } from './checkout/checkout.module';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AccountModule } from './account/account.module';
-
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { TrackingComponent } from './tracking/tracking.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { AccountModule } from './account/account.module';
     RegistrationComponent,
     CartComponent,
     ItemDetailComponent,
-    OrdersComponent
+    OrderDetailsComponent,
+    TrackingComponent,
+    CancelOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,8 @@ import { AccountModule } from './account/account.module';
     MatChipsModule,
     MatSelectModule,
     CheckoutModule,
-    AccountModule
+    AccountModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

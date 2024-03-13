@@ -11,7 +11,6 @@ export class MenuComponent implements OnInit {
   {name: 'Type 3', id: 3, route: '/itemList/3', isActive: true},
   {name: 'Type 4', id: 4, route: '/itemList/4', isActive: true},
   {name: 'Type 5', id: 5, route: '/itemList/5', isActive: true},
-  {name: 'Account', id: 5, route: '/account', isActive: true},
 
 ];
 

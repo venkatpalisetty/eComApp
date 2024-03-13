@@ -1,0 +1,46 @@
+.tracking-container{
+    padding: 20px;
+    .arrived {
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .cart-container{
+        .img-container{
+            margin-top: 15px;
+        }
+    }
+    .tracking-header{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .stepper-info{
+        display: flex;
+        gap:140px;
+        .delivery-info,.shipping-address,.order-info{
+            border: 3px solid #ddd;
+            padding: 20px;
+        }
+        .delivery-info{
+            .form-check{
+                margin-top: 30px;
+            }
+            .form-check-label{
+                color:rgb(73, 153, 153);
+            }
+        }
+        .shipping-address{
+            width: 320px;
+        }
+        .order-info{
+            width: 310px;
+            .view-order,.cancel-order{
+                color:rgb(73, 153, 153);
+            }
+            .view-order,.cancel-order{
+                margin-top: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.cancel-order-container {
+    padding: 20px;
+
+    .cancel-order-header {
+        font-size: 23px;
+        font-weight: 500;
+        color: red;
+        background: #ddd;
+        margin-bottom: 25px;
+    }
+
+    .item-list {
+        font-size: 20px;
+        font-weight: 500;
+        background: #ddd;
+    }
+    .item-container{
+        margin-top: 20px;
+        .img-container{
+            display: flex;
+        }
+        .description-container{
+            margin-left: 30px;
+            .description {
+                font-size: 17px;
+                color: #0F1111 !important;
+                font-weight: 600;
+            }
+    
+            .price {
+                font-size: 14px;
+                margin-top: -13px;
+            }
+    
+        }
+    }
+
+    .cancel-options {
+        margin-top: 40px;
+        font-size: 18px;
+        font-weight: 500;
+        .form-group {
+            width: 250px;
+            margin-left: 286px;
+            margin-top: -30px;
+        }
+    }
+
+    .button-container {
+        float: right;
+    }
+}

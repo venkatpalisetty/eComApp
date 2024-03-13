@@ -3,19 +3,24 @@
     border-radius: 5px;
     padding: 20px;
     width: 97%;
-    height: 512px;
     margin: 20px;
 
     .order-descrition {
         display: flex;
-        gap: 110px;
+        gap: 107px;
         margin-top: 10px;
         color:gray;
+        .total{
+            margin-left: -22px;
+        }
+        .shipTo{
+            margin-left: 14px;
+        }
     }
 
     .descrition {
         display: flex;
-        gap: 112px;
+        gap: 110px;
         color:gray;
     }
    .arrived {

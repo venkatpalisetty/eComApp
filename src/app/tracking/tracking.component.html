@@ -1,0 +1,57 @@
+<div class="tracking-container">
+    <div class="arrived">Arriving Monday</div>
+    <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
+        <ng-container *ngIf="cartItems.length; else noItems">
+            <div class="item-container" *ngFor="let item of cartItems; let i = index">
+                <div class="img-container">
+                    <img [src]="item.imgUrl" width="100px" height="100px">
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noItems>
+            <div>No items added. Please add items.</div>
+        </ng-template>
+    </div>
+    <hr>
+    <div class="tracking-header">Ordered</div>
+    <div class="stepper">
+        <mat-stepper labelPosition="bottom" #stepper>
+            <mat-step>
+                <ng-template matStepLabel>Orderd</ng-template>
+                <div class="stepper-info">
+                    <div class="delivery-info">
+                        <h5>Delivery Info</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Update delivery instructions
+                            </label>
+                        </div>
+                    </div>
+                    <div class="shipping-address">
+                        <h5>Shipping Address</h5>
+                        <div class="address">Venkata Nageswararao palisetty Pillutla Machavaram M, Guntur District,
+                            PIDUGURALLA, ANDRA
+                            PRADESH 522413 India</div>
+                    </div>
+                    <div class="order-info">
+                        <h5>Order Info</h5>
+                        <div class="view-order">View order details</div>
+                        <div class="cancel-order">Cancel order</div>
+                    </div>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Shipped</ng-template>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Out for delivery</ng-template>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Deliverd</ng-template>
+            </mat-step>
+        </mat-stepper>
+    </div>
+</div>
+
+  
