@@ -1,15 +1,18 @@
 <div class="order-details-container">
     <div class="order-details-header">Order Details</div>
     <div class="order-details-descrition">
-        <div>Ordered on {{currentDate | date:'dd MMM yyyy'}}</div>
+        <div>Ordered on {{orderItem.date | date:'dd MMM yyyy'}}</div>
         <div class="widget"></div>
-        <div>Order# 406-4371627-4309159</div>
+        <div>Order# {{orderItem.id}}</div>
     </div>
     <div class="order-details">
         <div class="shipping-address">
             <h5>ShippingAddress</h5>
-            <div>Shiping to Venkata Nageswararao palisetty Pillutla Machavaram M, Guntur District, PIDUGURALLA, ANDRA
-                PRADESH 522413 India</div>
+            <div>{{orderItem.shippingAddress[0].name}} {{orderItem.shippingAddress[0].address1}}
+                {{orderItem.shippingAddress[0].address2 ? orderItem.shippingAddress[0].address2 + ',' : ''}}
+                {{orderItem.shippingAddress[0].city}} {{orderItem.shippingAddress[0].state}}
+                {{orderItem.shippingAddress[0].country}}
+                {{orderItem.shippingAddress[0].pin}}</div>
         </div>
         <div class="payment-methods">
             <h5>Payment Methods</h5>
@@ -26,10 +29,8 @@
     <div class="order-descrition">
         <div class="arrived">Arriving Monday</div>
         <div class="patched">Not yet disatched</div>
-        <div class="cart-container" *ngIf="itemService.cartInfo$ | async as cartItems">
-            <ng-container *ngIf="cartItems.length; else noItems">
-                <div *ngFor="let item of cartItems; let i = index">
-                    <div class="item-container">
+       
+                    <div class="item-container" *ngFor="let item of orderItem.items">
                         <div class="img-container">
                             <img [src]="item.imgUrl" width="150px" height="150px">
                             <div class="description-container">
@@ -45,11 +46,6 @@
                             <div>Delivery</div>
                         </div>
                     </div>
-                </div>
-            </ng-container>
-            <ng-template #noItems>
-                <div>No items added. Please add items.</div>
-            </ng-template>
-        </div>
+         
     </div>
 </div>

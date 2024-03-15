@@ -24,9 +24,13 @@
                   <mat-option [value]="option" *ngFor="let option of sortOptions">{{option.name}}</mat-option>
                 </mat-select>
               </mat-form-field> -->
-              <select name="quantity" autocomplete="off" (change)="onSort($event)" [(ngModel)]="selectedSort">
-                <option [value]="option.id" *ngFor="let option of sortOptions">{{option.name}}</option>
-            </select>
-        </div>
+      <div class="form-group">
+        <select class="form-select" autocomplete="off" (change)="onSort($event)" [(ngModel)]="selectedSort">
+          <option *ngFor="let option of sortOptions" [value]="option.id">
+            {{option.name}}
+          </option>
+        </select>
+      </div>
     </div>
+  </div>
 </div>

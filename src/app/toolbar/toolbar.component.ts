@@ -11,9 +11,9 @@ export class ToolbarComponent implements OnInit {
   filters: any = [];
   selectedSort: any = null;
   sortOptions: any = [
-    {id: 1, name: 'Sory by: price Low to High', key: 'price', isAsc: true},
-    {id: 2, name: 'Sory by: price High to Low', key: 'price', isAsc: false},
-    {id: 3, name: 'Sory by: New Arrivals', key: 'creationDate', isAsc: false},
+    { id: 1, name: 'Sort by: price Low to High', key: 'price', isAsc: true },
+    { id: 2, name: 'Sort by: price High to Low', key: 'price', isAsc: false },
+    { id: 3, name: 'Sort by: New Arrivals', key: 'creationDate', isAsc: false },
   ];
   itemRange: any = '';
   constructor(public itemService: ItemService) { }

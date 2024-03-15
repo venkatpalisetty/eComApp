@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-orders',
@@ -8,10 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  currentDate = new Date();
-  constructor(public itemService:ItemService,private route:Router) { }
+  orderList:any = [];
+  constructor(private activtedroute:ActivatedRoute,public orderService:OrderService,private route:Router) { }
 
   ngOnInit(): void {
+    this.orderService.getOrder().subscribe((data:any) => {
+      this.orderList = data;
+      console.log(this.orderList);
+  })
   }
   editOrder(){
     this.route.navigate(['/orderDetails']);

@@ -8,7 +8,7 @@
     }
 
     .item-details {
-
+        width: 380px;
         .description {
             font-size: 17px;
             color: #0F1111 !important;
@@ -30,7 +30,7 @@
         }
 
         .details {
-            margin-left: 18px;
+            float: right;
             font-size: 14px;
         }
     }
