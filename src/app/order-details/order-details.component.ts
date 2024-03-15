@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-order-details',
@@ -15,10 +16,18 @@ export class OrderDetailsComponent implements OnInit {
   totalAmount: number = 0;
   totalOrder:any;
   shipping: any = 40;
+  orderItem:any = [];
   
-  constructor(public itemService: ItemService,private route:Router) { }
+  constructor(private activtedroute:ActivatedRoute,public orderService:OrderService,private route:Router, private itemService:ItemService) { }
 
   ngOnInit(): void {
+    this.activtedroute.params.subscribe((params) => {
+      if(params['id']){
+        this.orderItem = this.orderService.getOrderItem(params['id']);
+        console.log(this.orderItem);
+      }
+    })
+
     this.itemService.cartInfo$.subscribe((cartItems: any) => {
       this.quantity = cartItems.reduce((s: number, item: any) => s += +item.quantity, 0);
       const amount = cartItems.reduce((s: number, item: any) => s += item.price * +item.quantity, 0);

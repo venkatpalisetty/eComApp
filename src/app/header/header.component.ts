@@ -19,7 +19,4 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  orders(){
-    this.route.navigate(['/account']);
-  }
 }

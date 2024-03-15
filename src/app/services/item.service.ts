@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -80,7 +80,8 @@ export class ItemService {
     const temp = items.slice((pageData.seletedPage - 1) * pageData.pageSize, pageData.seletedPage * pageData.pageSize);
     const data = {
       results: temp,
-    totalResults: items.length};
+      totalResults: items.length
+    };
     this.itemsData.next(data);
   }
 
@@ -92,4 +93,5 @@ export class ItemService {
   getItem(id: any) {
     return this.items.find((item: any) => item.id == id);
   }
+
 }

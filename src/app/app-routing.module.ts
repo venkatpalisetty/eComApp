@@ -26,11 +26,11 @@ const routes: Routes = [
   {path: 'orderConfirmation', component: OrderConfirmationComponent, title: 'orderConfirmation'},
   {path: 'account', component: AccountComponent, title: 'account'},
   {path: 'orders', component: OrdersComponent, title: 'orders'},
-  {path: 'orderDetails', component: OrderDetailsComponent, title: 'orderDetails'},
+  {path: 'orderDetails/:id', component: OrderDetailsComponent, title: 'orderDetails'},
   {path: 'tracking', component: TrackingComponent, title: 'track'},
   {path: 'cancelOrder', component: CancelOrderComponent, title: 'cancelOrder'},
   {path: 'itemList/:typeId', component: ItemListComponent, title: 'Item List'},
-  {path: 'itemDetails/:itemId', component: ItemDetailComponent, title: 'Item Details'},
+  {path: 'itemDetails/:id', component: ItemDetailComponent, title: 'itemDetail'},
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: PageNotFoundComponent}
 ];
